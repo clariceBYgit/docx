@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./10.es5实现类，es6实现类.js"></script>
+    <!-- <script src="./11.promise.js"></script> -->
+    <script src="12.iterator.js"></script>
+</head>
+<body>
+    <h1>proxy和reflect实现双向数据绑定</h1>
+    <input type="text" id="input">
+    <h2>请输入的是: <i  id="txt"></i></h2>
+    <script>
+        // 获取Dom元素
+       const inputObj = document.getElementById('input')
+       const txtObj = document.getElementById('txt')
+       //    设置代理对象
+       const obj = {}
+    //    配置代理选项
+       const objProxy = new Proxy(obj, {
+           get(target, key){
+               return Reflect.get(target, key)
+           },
+           set(target, key, value){
+               if( key === 'text') {
+                //    实现双向绑定
+                   inputObj.value = inputObj.value === value ? inputObj.value : value
+                   txtObj.innerHTML = value
+               }
+               return Reflect.set(target, key, value)
+           }
+       })
+    //    添加监听事件
+       inputObj.addEventListener('keyup', e => {
+            objProxy.text = e.target.value
+            console.log(objProxy)
+       })
+       objProxy.text = '4554'
+    </script>
+</body>
+</html>
