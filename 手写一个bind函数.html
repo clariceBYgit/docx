@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //bind()  不是调用函数，而是基于原函数创建一个新的函数副本，永久替换新函数中的this为指定对象
+        // var 新函数 = 旧函数.bind(替换的this对象，要绑定的实参值)
+        Function.prototype.bind1 = function(a){ 
+            console.log(arguments)
+            const args = Array.from(arguments); //将arguments伪数组转化为数组
+            console.log( args)
+            const _this = args.shift(); //获取this ，取出数组的第一项
+            const self = this ; //当前函数 fn1.bind()中的fn1
+            return () => self.apply(_this,args)
+        }
+
+        function fn1(){
+           console.log('this',this)
+        }
+        // var obj = {} ;
+        // const fn2 = fn1.bind1(obj)
+        // fn2('coco')
+        // console.log(obj.name)
+        fn1()
+        const bindtest = fn1.bind({name:'coco'})
+        const bindreslut = bindtest()
+
+ 
+    </script>
+</body>
+</html>

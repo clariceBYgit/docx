@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+        header{
+            background: rgb(235, 12, 12);
+        }
+        .text{
+            background: rgb(137, 185, 24);
+            width: 100%;
+        }
+        .myleft{
+            position: relative;
+            width: 100px;
+            height: 300px;
+            background: rgb(160, 41, 230);
+            margin-left: -100%;
+            left: -100px;
+        }
+        .myright{
+            width: 200px;
+            height: 300px;
+            background: rgb(15, 68, 214);
+            margin-right: -200px;
+        }
+        footer{
+            background: #aff;
+        }
+        .content div{
+            float: left;
+        }
+        .content{
+            padding-left: 100px;
+            padding-right: 200px;
+            background: rgb(243, 229, 229);
+        }
+        .content::after{
+            content: '';
+            display: block;
+            clear: both;
+            visibility: hidden;
+            height: 0;
+        }
+    </style>
+</head>
+<body>
+   
+        <header>页头</header>
+        <div class="content">
+            <div class="text">内容区域</div>
+            <div class="myleft">左区域</div>
+            <div class="myright">右边</div>
+        </div>
+        <footer>页脚</footer>
+   
+</body>
+</html>

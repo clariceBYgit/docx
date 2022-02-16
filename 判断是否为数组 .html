@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var obj = [1, 2, 4];
+        console.log(obj.__proto__ == Array.prototype)
+        console.log(Object.getPrototypeOf(obj) == Array.prototype);
+        console.log(Array.prototype.isPrototypeOf(obj));
+        console.log(obj.constructor == Array);
+        console.log(Array.isArray(obj));
+        // 当强行给该判断对象更换了父对象，可以用以下两种方法判断
+        console.log(obj instanceof Array);
+        console.log(Object.prototype.toString.call(obj) == '[object Array]');
+       
+    </script>
+</body>
+
+</html>

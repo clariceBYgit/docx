@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.浅克隆
+        function shallowClone(oldObj){
+            // 判断其传入的oldObj的类型：防 null  数值 数组
+            if(oldObj === null){
+                return null; //原路返回 退出函数
+            }
+            if(typeof oldObj !== 'object'){  //对象和数组 typeof 都是object
+                return oldObj;
+            }
+            var newObj = Array.isArray(oldObj)? []:{} //判断传入的是否是数组
+            for (var key in oldObj) {
+                newObj[obj] = oldObj[obj];
+            }
+            return newObj;
+        }
+        // 深克隆
+        function deepClone(oldObj){
+            if (oldObj === null) {
+                return null
+            };
+            if(typeof oldObj !== 'objecct'){
+                return oldObj
+            };
+            var newObj = Array.isArray(oldObj)? []:{};
+            for (var key in oldObj) {
+                newObj[key] = deepClone(oldObj[key]);
+            };
+            return newObj;
+        }
+    </script>
+</body>
+</html>
