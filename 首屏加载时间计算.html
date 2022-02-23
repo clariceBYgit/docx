@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首屏模块标签标记法--只适用于不考虑拉取数据以及不考虑图片等资源的加载情况</title>
+    <script>
+        window.pageStart = Date.now();
+    </script>
+</head>
+<body>
+    <div>模块一</div>
+    <div>模块二</div>
+    <script>
+        window.firstScreen = Date.now()
+    </script>
+    <div>模块三</div>
+    <div>模块四</div>
+</body>
+</html>
